@@ -12,6 +12,9 @@
   color: #ffffff;
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
 }
 
 .whatsapp-float:hover {
@@ -23,5 +26,12 @@
   .whatsapp-float {
     right: 16px;
     bottom: 104px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
   }
 }

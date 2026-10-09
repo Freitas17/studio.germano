@@ -9,6 +9,8 @@
   padding: 0 16px;
   pointer-events: none;
   animation: tray-in 0.25s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .tray__inner {
@@ -24,6 +26,8 @@
   color: var(--color-white);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-lg);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .tray__info {

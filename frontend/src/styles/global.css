@@ -187,9 +187,11 @@ a {
 .servicos__grid > *,
 .agendamento__grid > *,
 .contato__inner > *,
+.agendamento__list li > *,
 .agendamento__list li > div,
 .tray__inner > * {
   min-width: 0;
+  max-width: 100%;
 }
 
 #root {
