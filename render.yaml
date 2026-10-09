@@ -16,10 +16,11 @@ services:
         value: log
       - key: FLASK_DEBUG
         value: "0"
-      # Apos o deploy do frontend na Vercel, troque o valor pela URL do projeto
-      # (ex.: https://studio-germano.vercel.app). Varias URLs separadas por virgula.
-      - key: CORS_ORIGINS
-        value: https://studio-germano.vercel.app
+      # O frontend na Vercel chama a API via proxy (ver frontend/vercel.json),
+      # entao o CORS nao e necessario. Se mudar para chamar a URL do backend
+      # direto do navegador, defina CORS_ORIGINS com a URL do frontend:
+      # - key: CORS_ORIGINS
+      #   value: https://seu-projeto.vercel.app
       # Para persistir o SQLite, use um disco (plano pago) e aponte o path:
       # - key: DATABASE_PATH
       #   value: /var/data/appointments.db
