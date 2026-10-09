@@ -5,7 +5,7 @@
 
 .agendamento__grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 28px;
   align-items: start;
 }
@@ -104,7 +104,7 @@
 
 .agendamento__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
 }
 
@@ -135,13 +135,13 @@
 
 @media (max-width: 860px) {
   .agendamento__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .agendamento__row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .agendamento__submit {
