@@ -70,3 +70,22 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 420px) {
+  .tray__inner {
+    gap: 12px;
+    padding: 10px 10px 10px 18px;
+  }
+
+  .tray__actions {
+    gap: 8px;
+  }
+
+  .tray__total {
+    font-size: 1.1rem;
+  }
+
+  .tray .btn {
+    padding: 12px 18px;
+  }
+}
