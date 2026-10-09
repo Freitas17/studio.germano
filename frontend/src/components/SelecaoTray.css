@@ -1,0 +1,72 @@
+.tray {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
+  animation: tray-in 0.25s ease;
+}
+
+.tray__inner {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 620px;
+  padding: 12px 12px 12px 24px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-lg);
+}
+
+.tray__info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.tray__count {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tray__total {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tray__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tray__clear {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
+  transition: color 0.2s ease;
+}
+
+.tray__clear:hover {
+  color: var(--color-white);
+}
+
+@keyframes tray-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

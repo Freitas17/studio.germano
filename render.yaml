@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: sitegeeh-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.4
+      - key: WHATSAPP_NUMBER
+        value: "5511937347334"
+      - key: NOTIFIER_PROVIDER
+        value: log
+      - key: FLASK_DEBUG
+        value: "0"
+      # Para persistir o SQLite, use um disco (plano pago) e aponte o path:
+      # - key: DATABASE_PATH
+      #   value: /var/data/appointments.db
