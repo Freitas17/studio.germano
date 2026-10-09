@@ -7,7 +7,7 @@
 }
 
 html {
-  overflow-x: clip;
+  overflow-x: hidden;
   max-width: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
@@ -24,7 +24,8 @@ body {
   -webkit-font-smoothing: antialiased;
   width: 100%;
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
+  position: relative;
 }
 
 img {
@@ -213,4 +214,23 @@ a {
   min-width: 0;
   max-width: 100%;
   min-height: 48px;
+}
+
+/* Garante que nenhum card/texto do formulário passe da largura da tela */
+.agendamento .container,
+.agendamento__grid,
+.agendamento__summary,
+.agendamento__form {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.agendamento__form,
+.agendamento__summary {
+  overflow-wrap: anywhere;
+}
+
+.agendamento__submit {
+  white-space: normal;
+  max-width: 100%;
 }
