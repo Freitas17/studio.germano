@@ -1,0 +1,7 @@
+﻿design-sobrancelha | Design de Sobrancelha | R30.0 | 60min | /design.webp | 1h
+design-henna | Design com Henna | R55.0 | 50min | /design-henna.webp | 50 min
+volume-egipcio | Volume Egipcio | R120.0 | 195min | /volume-egipcio.webp | 3h 15min
+brasileiro-marrom | Volume Brasileiro Marrom | R120.0 | 195min | /volume-brasileiro.webp | 3h 15min
+lash-lifting | Lash Lifting | R110.0 | 195min | /lash-lifting.webp | 3h 15min
+manutencao-cilios | Manutenção de Cílios | R80.0 | 60min | manutencao-cilios.svg | 1h
+hidragloss | Hidragloss sem microagulhamento | R50.0 | 60min | /hidragloss.webp | 1h

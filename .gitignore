@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Banco de dados e logs locais
+*.db
+*.log
+
+# Node / frontend
+node_modules/
+frontend/dist/
+
+# Ambiente
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db
