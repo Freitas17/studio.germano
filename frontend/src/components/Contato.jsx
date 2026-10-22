@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { imageUrl } from "../services/api.js";
 import "./Contato.css";
 
 export default function Contato({ whatsapp }) {
+  const [erroLogo, setErroLogo] = useState(false);
   const digits = String(whatsapp || "").replace(/\D/g, "");
   const waLink = digits ? `https://wa.me/${digits}` : "#";
 
@@ -8,9 +11,19 @@ export default function Contato({ whatsapp }) {
     <footer id="contato" className="contato">
       <div className="container contato__inner">
         <div className="contato__brand">
-          <p className="contato__logo">
-            Geeh<span>.</span>
-          </p>
+          {erroLogo ? (
+            <p className="contato__logo">
+              Geeh<span>.</span>
+            </p>
+          ) : (
+            <img
+              className="contato__logo-img"
+              src={imageUrl("logo.png")}
+              alt="Germano Estética Studio"
+              loading="lazy"
+              onError={() => setErroLogo(true)}
+            />
+          )}
           <p className="contato__tag">
             Sobrancelhas &amp; Cílios — realce o seu olhar.
           </p>

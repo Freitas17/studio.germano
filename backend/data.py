@@ -61,8 +61,26 @@ SERVICOS = [
         "imagem": "/hidragloss.webp",
     },
     {
+        "id": "mega-brasileiro",
+        "nome": "Mega Brasileiro",
+        "descricao": "Extensao de cilios fio a fio com efeito de volume, utilizando fios sintéticos em formato de \"Y\" (ou YY) na tonalidade preta.",
+        "preco": 140.0,
+        "duracao": "3h 15min",
+        "duracao_min": 195,
+        "imagem": "/mega-brasileiro.webp",
+    },
+    {
+        "id": "mega-egipcio",
+        "nome": "Mega Egipcio",
+        "descricao": "Extensao de cilios fio a fio com efeito de volume, utilizando fios sintéticos em formato de \"Y\" (ou YY) na tonalidade marrom.",
+        "preco": 150.0,
+        "duracao": "3h 15mi n",
+        "duracao_min": 195,
+        "imagem": "/mega-egipcio.webp",
+    },
+    {
         "id": "manutencao-volume-brasileiro",
-        "nome": "Manutenção de Cílios",
+        "nome": "Manutenção de Volume Brasileiro",
         "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
         "preco": 80.0,
         "duracao": "1h",
@@ -71,7 +89,7 @@ SERVICOS = [
     },
     {
         "id": "manutencao-egipcio",
-        "nome": "Manutenção de Cílios",
+        "nome": "Manutenção de Volume Egipcio",
         "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
         "preco": 85.0,
         "duracao": "1h",
@@ -80,7 +98,7 @@ SERVICOS = [
     },
     {
         "id": "manutencao-fox",
-        "nome": "Manutenção de Cílios",
+        "nome": "Manutenção Fox",
         "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
         "preco": 100.0,
         "duracao": "1h",
@@ -89,16 +107,35 @@ SERVICOS = [
     },
     {
         "id": "manutencao-brasileiro-marrom",
-        "nome": "Manutenção de Cílios",
+        "nome": "Manutenção Volume Brasileiro Marrom",
         "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
         "preco": 90.0,
         "duracao": "1h",
         "duracao_min": 60,
         "imagem": "manutencao-cilios.svg",
     },
+    {
+        "id": "manutencao-mega-brasileiro",
+        "nome": "Manutenção Mega Brasileiro",
+        "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
+        "preco": 100.0,
+        "duracao": "1h",
+        "duracao_min": 60,
+        "imagem": "/manutencao-cilios.webp",
+    },
+    {
+        "id": "manutencao-mega-egipcio",
+        "nome": "Manutenção Mega Egipcio",
+        "descricao": "Retoque para manter a extensao impecavel por mais tempo.",
+        "preco": 110.0,
+        "duracao": "1h",
+        "duracao_min": 60,
+        "imagem": "/manutencao-cilios.webp",
+    }, 
 ]
 
 
 def get_servico(servico_id):
     """Retorna o servico pelo id ou None."""
     return next((s for s in SERVICOS if s["id"] == servico_id), None)
+0

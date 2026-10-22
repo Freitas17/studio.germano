@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { imageUrl } from "../services/api.js";
 import "./Navbar.css";
 
 const LINKS = [
@@ -11,6 +12,7 @@ const LINKS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [erroLogo, setErroLogo] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -23,7 +25,17 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="container navbar__inner">
         <a href="#inicio" className="navbar__logo">
-          Geeh<span>.</span>
+          {erroLogo ? (
+            <>
+              Geeh<span>.</span>
+            </>
+          ) : (
+            <img
+              src={imageUrl("logo.png")}
+              alt="Geovanna Germano Estética Studio"
+              onError={() => setErroLogo(true)}
+            />
+          )}
         </a>
 
         <nav className="navbar__links">
