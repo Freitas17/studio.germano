@@ -11,16 +11,27 @@ export function SelectionProvider({ children }) {
     );
   }, []);
 
+  const toggleExclusive = useCallback((id, groupIds = [id]) => {
+    setSelected((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((item) => item !== id);
+      }
+      const group = new Set([id, ...groupIds]);
+      return [...prev.filter((item) => !group.has(item)), id];
+    });
+  }, []);
+
   const clear = useCallback(() => setSelected([]), []);
 
   const value = useMemo(
     () => ({
       selected,
       toggle,
+      toggleExclusive,
       clear,
       isSelected: (id) => selected.includes(id),
     }),
-    [selected, toggle, clear]
+    [selected, toggle, toggleExclusive, clear]
   );
 
   return (

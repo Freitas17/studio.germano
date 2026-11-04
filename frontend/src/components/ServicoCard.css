@@ -74,9 +74,17 @@
 
 .card__footer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
+}
+
+.card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
 }
 
 .card__price {
@@ -105,5 +113,29 @@
 .card__select.is-selected {
   background: var(--color-rose);
   border-color: var(--color-rose);
+  color: var(--color-white);
+}
+
+.card__maintenance {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--color-blush);
+  color: var(--color-muted);
+  font-size: 0.76rem;
+  font-weight: 500;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.card__maintenance:hover {
+  background: var(--color-blush-soft);
+  color: var(--color-rose-dark);
+}
+
+.card__maintenance.is-selected {
+  background: var(--color-rose);
+  border-color: var(--color-rose);
+  border-style: solid;
   color: var(--color-white);
 }

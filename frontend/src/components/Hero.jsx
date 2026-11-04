@@ -1,3 +1,4 @@
+import { imageUrl } from "../services/api.js";
 import "./Hero.css";
 
 export default function Hero() {
@@ -27,8 +28,13 @@ export default function Hero() {
 
         <div className="hero__art" aria-hidden="true">
           <div className="hero__circle hero__circle--outer" />
-          <div className="hero__circle hero__circle--inner" />
-          <span className="hero__monogram">G</span>
+          <div className="hero__circle hero__circle--inner">
+            <img
+              className="hero__logo"
+              src={imageUrl("logo.png")}
+              alt="Geovanna Germano Estética Studio"
+            />
+          </div>
         </div>
       </div>
     </section>

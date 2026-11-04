@@ -5,6 +5,16 @@ import "./Servicos.css";
 export default function Servicos({ services, loading, error }) {
   const { selected } = useSelection();
 
+  const principais = services.filter((servico) => servico.tipo !== "manutencao");
+
+  const manutencoesPorBase = services.reduce((map, servico) => {
+    if (servico.tipo === "manutencao" && servico.base_id) {
+      if (!map[servico.base_id]) map[servico.base_id] = [];
+      map[servico.base_id].push(servico);
+    }
+    return map;
+  }, {});
+
   return (
     <section id="servicos" className="section servicos">
       <div className="container">
@@ -24,8 +34,12 @@ export default function Servicos({ services, loading, error }) {
 
         {!loading && !error && (
           <div className="servicos__grid">
-            {services.map((servico) => (
-              <ServicoCard key={servico.id} servico={servico} />
+            {principais.map((servico) => (
+              <ServicoCard
+                key={servico.id}
+                servico={servico}
+                manutencoes={manutencoesPorBase[servico.id] || []}
+              />
             ))}
           </div>
         )}
