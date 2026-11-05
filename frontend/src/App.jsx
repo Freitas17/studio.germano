@@ -13,6 +13,7 @@ import WhatsAppButton from "./components/WhatsAppButton.jsx";
 export default function App() {
   const [services, setServices] = useState([]);
   const [whatsapp, setWhatsapp] = useState("");
+  const [schedule, setSchedule] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,6 +25,11 @@ export default function App() {
         if (!active) return;
         setServices(servicesData);
         setWhatsapp(configData.whatsapp_number);
+        setSchedule({
+          businessDays: configData.business_days || [0, 1, 2, 3, 4, 5],
+          businessHours: configData.business_hours || {},
+          maxAdvanceDays: configData.max_advance_days ?? 60,
+        });
       })
       .catch((err) => {
         if (active) setError(err.message);
@@ -44,7 +50,11 @@ export default function App() {
         <Hero />
         <Sobre />
         <Servicos services={services} loading={loading} error={error} />
-        <AgendamentoForm services={services} whatsapp={whatsapp} />
+        <AgendamentoForm
+          services={services}
+          whatsapp={whatsapp}
+          schedule={schedule}
+        />
       </main>
       <Contato whatsapp={whatsapp} />
       <SelecaoTray services={services} />

@@ -19,7 +19,8 @@ def total_duration(servicos):
 
 
 def _is_business_day(day):
-    return day.weekday() in config.BUSINESS_DAYS
+    weekday = day.weekday()
+    return weekday in config.BUSINESS_DAYS and weekday in config.BUSINESS_HOURS
 
 
 def _within_range(day, today):
@@ -57,10 +58,9 @@ def get_available_slots(target_date, servicos, appointments):
     if not _is_business_day(day) or not _within_range(day, today):
         return slots
 
-    open_minutes = _to_minutes(config.OPEN_TIME)
-    close_minutes = _to_minutes(config.CLOSE_TIME)
-    lunch_start = _to_minutes(config.LUNCH_START)
-    lunch_end = _to_minutes(config.LUNCH_END)
+    open_time, close_time = config.BUSINESS_HOURS[day.weekday()]
+    open_minutes = _to_minutes(open_time)
+    close_minutes = _to_minutes(close_time)
     step = config.SLOT_INTERVAL_MIN
 
     duration = total_duration(servicos) or step
@@ -74,9 +74,6 @@ def get_available_slots(target_date, servicos, appointments):
     while cursor + duration <= close_minutes:
         end = cursor + duration
         available = True
-
-        if cursor < lunch_end and end > lunch_start:
-            available = False
 
         for busy_start, busy_end in busy:
             if cursor < busy_end and end > busy_start:

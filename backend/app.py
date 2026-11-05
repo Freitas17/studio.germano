@@ -28,7 +28,23 @@ def health():
 
 @app.get("/api/config")
 def get_config():
-    return jsonify({"whatsapp_number": config.WHATSAPP_NUMBER})
+    business_days = sorted(
+        day
+        for day in config.BUSINESS_DAYS
+        if day in config.BUSINESS_HOURS
+    )
+    business_hours = {
+        str(day): {"open": hours[0], "close": hours[1]}
+        for day, hours in config.BUSINESS_HOURS.items()
+    }
+    return jsonify(
+        {
+            "whatsapp_number": config.WHATSAPP_NUMBER,
+            "business_days": business_days,
+            "business_hours": business_hours,
+            "max_advance_days": config.MAX_ADVANCE_DAYS,
+        }
+    )
 
 
 @app.get("/api/services")

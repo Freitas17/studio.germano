@@ -6,15 +6,10 @@ import {
 } from "../services/api.js";
 import { formatBRL, formatDate } from "../utils/format.js";
 import { buildMessage, buildWhatsAppLink } from "../utils/whatsapp.js";
+import Calendar from "./Calendar.jsx";
 import "./AgendamentoForm.css";
 
-function todayISO() {
-  const now = new Date();
-  const offset = now.getTimezoneOffset();
-  return new Date(now.getTime() - offset * 60000).toISOString().slice(0, 10);
-}
-
-export default function AgendamentoForm({ services, whatsapp }) {
+export default function AgendamentoForm({ services, whatsapp, schedule }) {
   const { selected, toggle, clear } = useSelection();
   const [nome, setNome] = useState("");
   const [data, setData] = useState("");
@@ -24,6 +19,10 @@ export default function AgendamentoForm({ services, whatsapp }) {
   const [feedback, setFeedback] = useState("");
   const [slots, setSlots] = useState([]);
   const [slotsStatus, setSlotsStatus] = useState("idle");
+
+  const businessDays = schedule?.businessDays ?? [0, 1, 2, 3, 4, 5];
+  const businessHours = schedule?.businessHours ?? {};
+  const maxAdvanceDays = schedule?.maxAdvanceDays ?? 60;
 
   const chosen = useMemo(
     () => services.filter((s) => selected.includes(s.id)),
@@ -179,13 +178,13 @@ export default function AgendamentoForm({ services, whatsapp }) {
             <div className="agendamento__row">
               <div className="field">
                 <label htmlFor="data">Data</label>
-                <input
+                <Calendar
                   id="data"
-                  type="date"
                   value={data}
-                  min={todayISO()}
-                  onChange={(e) => setData(e.target.value)}
-                  required
+                  onChange={setData}
+                  businessDays={businessDays}
+                  businessHours={businessHours}
+                  maxAdvanceDays={maxAdvanceDays}
                 />
               </div>
               <div className="field">

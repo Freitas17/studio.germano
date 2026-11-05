@@ -46,15 +46,22 @@ TWILIO_WHATSAPP_FROM = os.environ.get("TWILIO_WHATSAPP_FROM", "")
 # ---------------------------------------------------------------------------
 # Regras de agenda
 # BUSINESS_DAYS usa o padrao do Python (Segunda=0 ... Domingo=6).
-# [1,2,3,4,5] = Terca a Sabado.
+# [0,1,2,3,4,5] = Segunda a Sabado.
 # ---------------------------------------------------------------------------
 BUSINESS_DAYS = [
-    int(day) for day in os.environ.get("BUSINESS_DAYS", "1,2,3,4,5").split(",")
+    int(day) for day in os.environ.get("BUSINESS_DAYS", "0,1,2,3,4,5").split(",")
 ]
-OPEN_TIME = os.environ.get("OPEN_TIME", "09:00")
-CLOSE_TIME = os.environ.get("CLOSE_TIME", "19:00")
-LUNCH_START = os.environ.get("LUNCH_START", "12:00")
-LUNCH_END = os.environ.get("LUNCH_END", "13:00")
+
+# Horario de funcionamento por dia da semana (Segunda=0 ... Domingo=6).
+BUSINESS_HOURS = {
+    0: ("08:00", "19:00"),  # Segunda
+    1: ("08:00", "15:00"),  # Terca
+    2: ("08:00", "15:00"),  # Quarta
+    3: ("08:00", "15:00"),  # Quinta
+    4: ("08:00", "19:00"),  # Sexta
+    5: ("08:00", "19:00"),  # Sabado
+}
+
 SLOT_INTERVAL_MIN = int(os.environ.get("SLOT_INTERVAL_MIN", "60"))
 LEAD_TIME_HOURS = int(os.environ.get("LEAD_TIME_HOURS", "2"))
 MAX_ADVANCE_DAYS = int(os.environ.get("MAX_ADVANCE_DAYS", "60"))

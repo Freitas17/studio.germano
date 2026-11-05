@@ -42,8 +42,10 @@ export default function Contato({ whatsapp }) {
 
         <div className="contato__block">
           <h3>Horário</h3>
-          <p>Terça a Sábado</p>
-          <p>09:00 — 19:00</p>
+          <p>Segunda, Sexta e Sábado</p>
+          <p>08:00 — 19:00</p>
+          <p>Terça a Quinta</p>
+          <p>08:00 — 15:00</p>
         </div>
       </div>
 
