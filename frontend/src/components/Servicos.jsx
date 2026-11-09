@@ -5,10 +5,20 @@ import "./Servicos.css";
 export default function Servicos({ services, loading, error }) {
   const { selected } = useSelection();
 
-  const principais = services.filter((servico) => servico.tipo !== "manutencao");
+  const principais = services.filter(
+    (servico) => servico.tipo !== "manutencao" && servico.tipo !== "opcao"
+  );
 
   const manutencoesPorBase = services.reduce((map, servico) => {
     if (servico.tipo === "manutencao" && servico.base_id) {
+      if (!map[servico.base_id]) map[servico.base_id] = [];
+      map[servico.base_id].push(servico);
+    }
+    return map;
+  }, {});
+
+  const opcoesPorBase = services.reduce((map, servico) => {
+    if (servico.tipo === "opcao" && servico.base_id) {
       if (!map[servico.base_id]) map[servico.base_id] = [];
       map[servico.base_id].push(servico);
     }
@@ -39,6 +49,7 @@ export default function Servicos({ services, loading, error }) {
                 key={servico.id}
                 servico={servico}
                 manutencoes={manutencoesPorBase[servico.id] || []}
+                opcoes={opcoesPorBase[servico.id] || []}
               />
             ))}
           </div>

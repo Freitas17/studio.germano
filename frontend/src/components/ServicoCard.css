@@ -116,6 +116,22 @@
   color: var(--color-white);
 }
 
+.card--options .card__footer {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.card--options .card__actions {
+  width: 100%;
+}
+
+.card--options .card__select {
+  width: 100%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+}
+
 .card__maintenance {
   padding: 8px 14px;
   border-radius: var(--radius-pill);
