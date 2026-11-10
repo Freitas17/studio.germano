@@ -32,7 +32,7 @@ export default function Navbar() {
           ) : (
             <img
               src={imageUrl("logo.png")}
-              alt="Geovanna Germano Estética Studio"
+              alt="Studio Germano — Sobrancelhas e Cílios"
               onError={() => setErroLogo(true)}
             />
           )}

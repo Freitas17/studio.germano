@@ -51,7 +51,7 @@ export default function Sobre() {
           ) : (
             <img
               src={imageUrl("Germano.jpeg")}
-              alt="Dona do estúdio Geeh"
+              alt="Geovanna Germano, lash designer do Studio Germano"
               loading="lazy"
               onError={() => setErroFoto(true)}
             />

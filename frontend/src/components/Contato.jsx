@@ -19,7 +19,7 @@ export default function Contato({ whatsapp }) {
             <img
               className="contato__logo-img"
               src={imageUrl("logo.png")}
-              alt="Germano Estética Studio"
+              alt="Studio Germano — Sobrancelhas e Cílios"
               loading="lazy"
               onError={() => setErroLogo(true)}
             />
@@ -50,7 +50,7 @@ export default function Contato({ whatsapp }) {
       </div>
 
       <div className="container contato__bottom">
-        <span>© {new Date().getFullYear()} Geeh Estética. Todos os direitos reservados.</span>
+        <span>© {new Date().getFullYear()} Studio Germano. Todos os direitos reservados.</span>
         <a href="#inicio">Voltar ao topo</a>
       </div>
     </footer>

@@ -32,7 +32,7 @@ export default function Hero() {
             <img
               className="hero__logo"
               src={imageUrl("logo.png")}
-              alt="Geovanna Germano Estética Studio"
+              alt="Studio Germano — logotipo de sobrancelhas e cílios"
             />
           </div>
         </div>
