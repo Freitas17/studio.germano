@@ -1,4 +1,4 @@
-# Geeh Estética — Single Page
+# Studio Germano — Single Page
 
 Single page de estúdio de sobrancelhas e cílios. A cliente seleciona um ou
 mais serviços, informa nome/data/horário e o pedido é salvo no Flask e enviado
